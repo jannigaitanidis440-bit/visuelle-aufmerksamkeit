@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visuelle Aufmerksamkeit – Lernmodul | HFU</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- PROGRESS -->
+<div id="progressWrap">
+  <div id="progressBar"><div id="progressFill" style="width:0%"></div></div>
+  <div id="progressMeta"><span id="progressLabel">Intro</span><span id="progressPct">0%</span></div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 1.0 + 1.1 – INTRO & TITEL
+     Drehbuch: Überschrift + Untertitel, Musik beginnt leise,
+     Titel erscheint nach 1 Sek., Button "Starten" mit Klick-Sound
+════════════════════════════════════════════ -->
+<div class="screen active" id="s0"><div class="inner">
+  <div class="tag intro">Einstieg</div>
+  <div class="card" style="align-items:center;text-align:center;padding:48px 32px;gap:24px;">
+    <div style="font-size:56px;animation:fadeUp 1s ease;">👁️</div>
+    <h1 style="animation:fadeUp 1.2s ease;">Visuelle<br><span class="hl">Aufmerksamkeit</span></h1>
+    <p style="max-width:460px;animation:fadeUp 1.4s ease;">Bist du wirklich aufmerksam?</p>
+    <button class="btn pulse" onclick="playSFX('click');goTo(1);" style="animation:fadeUp 1.6s ease;">Starten</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2.0 – EINSTIEGSFRAGE
+     Drehbuch: Buttons erscheinen nacheinander (Delay 0,3 Sek. je)
+     Fragzeichen-Icon, alle Antworten → nächster Screen
+════════════════════════════════════════════ -->
+<div class="screen" id="s1">
+<div class="inner">
+  <div class="tag kap1">Kapitel 1 – Was ist Aufmerksamkeit?</div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-size:32px;">❓</span>
+      <h2>Wie viele Dinge kannst du gleichzeitig <span class="hl">bewusst</span> wahrnehmen?</h2>
+    </div>
+    <div class="est-grid" id="estGrid">
+      <button class="est-btn" style="opacity:0;transform:translateX(-8px);transition:all 0.3s 0.0s" onclick="selectEst(this)">1</button>
+      <button class="est-btn" style="opacity:0;transform:translateX(-8px);transition:all 0.3s 0.3s" onclick="selectEst(this)">2 – 3</button>
+      <button class="est-btn" style="opacity:0;transform:translateX(-8px);transition:all 0.3s 0.6s" onclick="selectEst(this)">4 – 5</button>
+      <button class="est-btn" style="opacity:0;transform:translateX(-8px);transition:all 0.3s 0.9s" onclick="selectEst(this)">Mehr als 5</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2.1 – INTERESSANT!
+     Drehbuch: Überschrift "Interessant!", Voiceover Party-Szene,
+     Hintergrundmusik, Text blendet ein, Illustration Party-Szene
+════════════════════════════════════════════ -->
+<div class="screen" id="s2">
+<div class="inner">
+  <div class="tag kap1">Kapitel 1 – Was ist Aufmerksamkeit?</div>
+  <div class="card">
+    <h2>Interessant!</h2>
+    <p>Wissenschaftler sind sich einig: Wir können unsere Aufmerksamkeit immer nur auf wenige Dinge gleichzeitig richten.</p>
+    <div class="vo" onclick="playVO('s2')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Stell dir vor, du bist auf einer Party. Du unterhältst dich mit einem Freund, aber gleichzeitig versuchst du, das Gespräch am Nebentisch zu verfolgen. Genau das zeigt, wie selektiv unsere Aufmerksamkeit arbeitet.</span>
+    </div>
+    <!-- Party-Szene Illustration GROSS -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:40px 32px;">
+      <p style="font-size:clamp(14px,1.2vw,18px);color:var(--muted);margin-bottom:28px;text-align:center;">Alltagsbeispiel: Offene vs. Verdeckte Aufmerksamkeit auf einer Party</p>
+      <svg viewBox="0 0 800 280" width="100%" style="display:block;">
+        <!-- Background party -->
+        <rect width="800" height="280" fill="#F0EDE8" rx="12"/>
+        <!-- Table left -->
+        <rect x="40" y="160" width="180" height="12" fill="#C9B99A" rx="4"/>
+        <rect x="80" y="172" width="12" height="60" fill="#C9B99A" rx="3"/>
+        <rect x="188" y="172" width="12" height="60" fill="#C9B99A" rx="3"/>
+        <!-- Glasses on table -->
+        <ellipse cx="100" cy="158" rx="12" ry="5" fill="#A8D4E8" opacity="0.7"/>
+        <rect x="95" y="135" width="10" height="23" fill="#A8D4E8" opacity="0.6" rx="2"/>
+        <ellipse cx="160" cy="158" rx="12" ry="5" fill="#F4A8A8" opacity="0.7"/>
+        <rect x="155" y="135" width="10" height="23" fill="#F4A8A8" opacity="0.6" rx="2"/>
+        <!-- Person A (Du) -->
+        <circle cx="200" cy="100" r="36" fill="#2D5BE3" opacity="0.15"/>
+        <circle cx="200" cy="78" r="28" fill="#FDBCB4"/>
+        <text x="200" y="84" text-anchor="middle" font-size="24">😊</text>
+        <rect x="170" y="110" width="60" height="70" fill="#2D5BE3" rx="8"/>
+        <text x="200" y="200" text-anchor="middle" font-size="15" font-weight="800" fill="#1A1A2E">DU</text>
+        <!-- Arrow: Blick to Person B -->
+        <line x1="228" y1="80" x2="370" y2="80" stroke="#2D5BE3" stroke-width="3" stroke-dasharray="0"/>
+        <polygon points="370,74 385,80 370,86" fill="#2D5BE3"/>
+        <text x="307" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#2D5BE3">👁️ BLICK</text>
+        <!-- Person B (Freund/Gespräch) -->
+        <circle cx="420" cy="100" r="36" fill="#6B6880" opacity="0.1"/>
+        <circle cx="420" cy="78" r="28" fill="#FDBCB4"/>
+        <text x="420" y="84" text-anchor="middle" font-size="24">😄</text>
+        <rect x="390" y="110" width="60" height="70" fill="#6B6880" rx="8"/>
+        <text x="420" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#6B6880">FREUND</text>
+        <text x="420" y="216" text-anchor="middle" font-size="11" fill="#6B6880">(Gespräch)</text>
+        <!-- Curved arrow: Verdeckte Aufmerksamkeit to Person C -->
+        <path d="M 228 95 Q 400 20 560 85" stroke="#0EA8A8" stroke-width="2.5" fill="none" stroke-dasharray="8 4"/>
+        <polygon points="555,79 572,85 558,94" fill="#0EA8A8"/>
+        <text x="390" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#0EA8A8">🧠 VERDECKTE AUFMERKSAMKEIT</text>
+        <!-- Person C (Nebentisch) -->
+        <circle cx="610" cy="100" r="36" fill="#0EA8A8" opacity="0.12"/>
+        <circle cx="610" cy="78" r="28" fill="#FDBCB4"/>
+        <text x="610" y="84" text-anchor="middle" font-size="24">🤔</text>
+        <rect x="580" y="110" width="60" height="70" fill="#0EA8A8" rx="8"/>
+        <text x="610" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#0EA8A8">PERSON</text>
+        <text x="610" y="216" text-anchor="middle" font-size="11" fill="#0EA8A8">am Nebentisch</text>
+        <!-- Legend -->
+        <rect x="40" y="240" width="14" height="14" fill="#2D5BE3" rx="3"/>
+        <text x="60" y="252" font-size="12" fill="#6B6880">Offene Aufmerksamkeit (Blickrichtung)</text>
+        <rect x="340" y="240" width="14" height="14" fill="#0EA8A8" rx="3"/>
+        <text x="360" y="252" font-size="12" fill="#6B6880">Verdeckte Aufmerksamkeit</text>
+      </svg>
+      <p class="source" style="text-align:center;margin-top:12px;">Goldstein & Cacciamani, 2023, S. 144</p>
+    </div>
+    <button class="btn" onclick="goTo(3)">Weiter →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2.2 – ZWEI ARTEN DER AUFMERKSAMKEIT
+     Drehbuch: Zwei Karten erscheinen von links und rechts,
+     Icons Auge & Gehirn, Voiceover, Button erscheint nach Voiceover
+════════════════════════════════════════════ -->
+<div class="screen" id="s3">
+<div class="inner">
+  <div class="tag kap1">Kapitel 1 – Was ist Aufmerksamkeit?</div>
+  <div class="card">
+    <h2>Zwei Arten der <span class="hl">Aufmerksamkeit</span></h2>
+    <div class="vo" onclick="playVO('s3')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Wir können unsere Aufmerksamkeit auf zwei verschiedene Arten einsetzen: offen – also mit Bewegung des Blicks – oder verdeckt, ohne dass wir unseren Blick verändern.</span>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card overt" style="animation:slideInLeft 0.5s ease;">
+        <div class="cicon">👀</div>
+        <h3>Offene Aufmerksamkeit</h3>
+        <p class="small">Du drehst deinen Blick aktiv in eine Richtung.</p>
+      </div>
+      <div class="concept-card covert" style="animation:slideInRight 0.5s ease;">
+        <div class="cicon">🧠</div>
+        <h3>Verdeckte Aufmerksamkeit</h3>
+        <p class="small">Du schaust geradeaus, aber deine Aufmerksamkeit ist woanders.</p>
+      </div>
+    </div>
+    <button class="btn" onclick="goTo(4)">Weiter →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 2.3 – ÜBERLEITUNG ZU KAPITEL 2
+     Drehbuch: Text + Button "Zum ersten Experiment",
+     Voiceover, Spannungsaufbau-Sound, Pfeil-Animation
+════════════════════════════════════════════ -->
+<div class="screen" id="s4">
+<div class="inner">
+  <div class="tag kap1">Überleitung → Kapitel 2</div>
+  <div class="teaser">
+    <div class="big-emoji" style="animation:fadeUp 0.5s ease;">➡️</div>
+    <h2>Gleich wirst du selbst erleben, wie leicht unsere <span class="hl">Aufmerksamkeit</span> uns täuschen kann.</h2>
+    <div class="vo" onclick="playVO('s4')" style="text-align:left;width:100%;max-width:480px;">
+      <span class="vo-icon">🔊</span>
+      <span>Bist du bereit? Dann starten wir mit dem ersten Experiment!</span>
+    </div>
+    <button class="btn b2" onclick="playSFX('tension');goTo(5);">Zum ersten Experiment →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 3.0 – EXPERIMENT 1 AUFGABE
+     Drehbuch: Überschrift, Erklärungstext, Voiceover,
+     leiser Spannungssound, "Los geht's" Button
+════════════════════════════════════════════ -->
+<div class="screen" id="s5">
+<div class="inner">
+  <div class="tag kap2">Kapitel 2 – Veränderungsblindheit</div>
+  <div class="card">
+    <h2>Experiment 1: Siehst du die <span class="hl2">Veränderung</span>?</h2>
+    <p>Zwei Bilder wechseln sich ab. Klicke auf die Stelle, an der du eine Veränderung bemerkst.</p>
+    <div class="vo kap2" onclick="playVO('s5')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Schau aufmerksam hin. Irgendwo in diesem Bild verändert sich etwas. Kannst du es entdecken?</span>
+    </div>
+    <button class="btn b2" onclick="playSFX('tension');goTo(6);">Los geht's →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 3.1 – EXPERIMENT 1 ANIMATION
+     Drehbuch: Bild A (1,5 Sek.) → grauer Frame (0,2 Sek.) → Bild B
+     Tickendes Geräusch, Klick auf korrekte Stelle → Screen 3.2
+════════════════════════════════════════════ -->
+<div class="screen" id="s6">
+<div class="inner">
+  <div class="tag kap2">Kapitel 2 – Veränderungsblindheit</div>
+  <div class="card">
+    <p class="small" style="text-align:center;">Klicke auf die Stelle, an der du eine Veränderung bemerkst!</p>
+    <div id="expContainer" onclick="handleExp1Click(event)">
+      <svg class="scene-svg" viewBox="0 0 600 320" id="sceneSVG">
+        <rect width="600" height="320" fill="#1a2a3a"/>
+        <rect y="220" width="600" height="100" fill="#2a3a2a"/>
+        <rect x="220" y="220" width="160" height="100" fill="#333"/>
+        <rect x="290" y="232" width="20" height="14" fill="#666" rx="2"/>
+        <rect x="290" y="260" width="20" height="14" fill="#666" rx="2"/>
+        <rect x="290" y="290" width="20" height="14" fill="#666" rx="2"/>
+        <!-- Haus links -->
+        <rect x="30" y="130" width="120" height="92" fill="#3a4a5a"/>
+        <polygon points="30,130 90,72 150,130" fill="#2a3a4a"/>
+        <!-- VERÄNDERUNG: linkes Fenster -->
+        <rect x="40" y="144" width="22" height="18" fill="#4a6a8a" rx="2" id="changeElem"/>
+        <circle cx="51" cy="153" r="18" fill="none" stroke="#c8f04a" stroke-width="3" id="correctMarker" style="display:none;"/>
+        <rect x="100" y="148" width="26" height="20" fill="#4a6a8a" rx="2"/>
+        <rect x="56" y="162" width="30" height="40" fill="#1a2030" rx="2"/>
+        <!-- Haus rechts -->
+        <rect x="420" y="140" width="140" height="82" fill="#4a3a3a"/>
+        <polygon points="420,140 490,86 560,140" fill="#3a2a2a"/>
+        <rect x="446" y="166" width="28" height="34" fill="#1a1510" rx="2"/>
+        <rect x="490" y="160" width="30" height="24" fill="#6a5a4a" rx="2"/>
+        <rect x="530" y="160" width="24" height="24" fill="#6a5a4a" rx="2"/>
+        <!-- Bäume -->
+        <rect x="186" y="202" width="8" height="22" fill="#5a4030"/>
+        <ellipse cx="190" cy="190" rx="20" ry="24" fill="#2a5a2a"/>
+        <rect x="385" y="202" width="8" height="22" fill="#5a4030"/>
+        <ellipse cx="389" cy="188" rx="22" ry="25" fill="#2a5a2a"/>
+        <!-- Laterne -->
+        <rect x="209" y="172" width="4" height="50" fill="#888"/>
+        <rect x="201" y="170" width="20" height="6" fill="#888" rx="3"/>
+        <ellipse cx="211" cy="170" rx="8" ry="4" fill="#ffe080" opacity="0.9"/>
+        <!-- Auto -->
+        <rect x="240" y="236" width="80" height="35" fill="#c04040" rx="6"/>
+        <rect x="252" y="228" width="56" height="20" fill="#d05050" rx="4"/>
+        <rect x="256" y="231" width="20" height="14" fill="#6ad0f0" rx="2" opacity="0.8"/>
+        <rect x="280" y="231" width="20" height="14" fill="#6ad0f0" rx="2" opacity="0.8"/>
+        <circle cx="258" cy="271" r="7" fill="#222"/><circle cx="258" cy="271" r="4" fill="#555"/>
+        <circle cx="302" cy="271" r="7" fill="#222"/><circle cx="302" cy="271" r="4" fill="#555"/>
+        <!-- Mond & Sterne -->
+        <circle cx="520" cy="50" r="28" fill="#ffe8a0"/>
+        <circle cx="530" cy="42" r="22" fill="#1a2a3a"/>
+        <circle cx="80" cy="30" r="2" fill="#fff" opacity="0.8"/>
+        <circle cx="160" cy="50" r="1.5" fill="#fff" opacity="0.7"/>
+        <circle cx="340" cy="25" r="2" fill="#fff" opacity="0.9"/>
+        <circle cx="440" cy="45" r="1.5" fill="#fff" opacity="0.6"/>
+        <circle cx="120" cy="65" r="1" fill="#fff" opacity="0.7"/>
+        <circle cx="380" cy="55" r="1.5" fill="#fff" opacity="0.8"/>
+      </svg>
+      <div id="flashOverlay"></div>
+      <div class="click-fb" id="clickFb1"></div>
+    </div>
+    <p class="small" id="hintText1" style="text-align:center;">Klicke auf die Stelle, an der du die Veränderung bemerkst!</p>
+    <div id="wrongFb1" style="display:none;color:var(--danger);font-size:14px;text-align:center;"></div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 3.2 – AUFLÖSUNG EXPERIMENT 1
+     Drehbuch: "Gut gemacht!" / Voiceover, positiver Sound,
+     Veränderung wird markiert (roter Kreis), Weiter-Button
+════════════════════════════════════════════ -->
+<div class="screen" id="s7">
+<div class="inner">
+  <div class="tag kap2">Kapitel 2 – Veränderungsblindheit</div>
+  <div class="card">
+    <h2 style="font-size:clamp(28px,3.5vw,48px);">Gut gemacht! 🎉</h2>
+    <p style="font-size:clamp(17px,1.6vw,24px);color:var(--text);">Die Veränderung war das <span class="hl2" style="font-size:inherit;">linke Fenster des Hauses</span> – es verschwand bei jedem Bildwechsel. Hast du sie schnell gefunden?</p>
+    <div class="vo kap2" onclick="playVO('s7')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Die meisten Menschen brauchen eine Weile, um solche Veränderungen zu entdecken – selbst wenn sie direkt vor ihren Augen passieren.</span>
+    </div>
+
+    <!-- SCREEN 3.3 – Erklärung direkt angehängt -->
+    <h3 style="margin-top:8px;font-size:clamp(20px,2vw,30px);color:var(--text);">Was ist <span class="hl2">Veränderungsblindheit</span>?</h3>
+    <p style="font-size:clamp(16px,1.5vw,22px);color:var(--text);">Veränderungsblindheit beschreibt die Schwierigkeit, Veränderungen in einer Szene zu entdecken, wenn diese während einer kurzen Unterbrechung auftreten.</p>
+    <div class="fact-box b2">
+      <span class="fi">🔬</span>
+      <div>
+        <p style="font-size:clamp(15px,1.4vw,21px);color:var(--text);"><strong>Forscher Rensink, O'Regan & Clark (1997)</strong> haben gezeigt: Wenn unser Blick für einen Moment unterbrochen wird – auch nur durch einen grauen Zwischenframe – verpassen wir Veränderungen die eigentlich offensichtlich sind.</p>
+        <p class="source" style="margin-top:8px;font-size:clamp(12px,1vw,16px);">Rensink et al., 1997 / Goldstein & Cacciamani, 2023, S. 161</p>
+      </div>
+    </div>
+    <!-- Diagramm: Bild A → grauer Frame → Bild B -->
+    <div class="diagram-flow" style="gap:12px;margin:8px 0;">
+      <div class="diagram-box" style="font-size:clamp(14px,1.3vw,19px);padding:14px 20px;">🖼️ Bild A</div>
+      <div class="diagram-arrow">→</div>
+      <div class="diagram-box" style="background:#888;color:#fff;font-size:clamp(14px,1.3vw,19px);padding:14px 20px;">⬜ Grauer Frame</div>
+      <div class="diagram-arrow">→</div>
+      <div class="diagram-box" style="font-size:clamp(14px,1.3vw,19px);padding:14px 20px;">🖼️ Bild B</div>
+      <div class="diagram-arrow">→</div>
+      <div class="diagram-box" style="color:var(--accent2);font-size:clamp(14px,1.3vw,19px);padding:14px 20px;border-color:var(--accent2);">😕 Veränderung übersehen</div>
+    </div>
+    <p style="font-size:clamp(15px,1.4vw,20px);color:var(--text);">Im Alltag passiert das z.B. bei Filmen: <strong>Kontinuitätsfehler</strong> (wechselnde Requisiten oder Frisuren) bleiben unbemerkt, weil unsere Aufmerksamkeit beim Schnitt kurz unterbrochen wird.</p>
+    <!-- YouTube Veränderungsblindheit -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+      <span style="font-size:28px;flex-shrink:0;">🎬</span>
+      <div>
+        <p style="font-size:clamp(14px,1.2vw,18px);color:var(--text);font-weight:700;margin-bottom:4px;">Original-Experiment ansehen</p>
+        <p style="font-size:clamp(13px,1.1vw,16px);color:var(--muted);margin-bottom:10px;">Das klassische Veränderungsblindheits-Experiment – sieh selbst wie es im Original aussieht.</p>
+        <a href="https://youtu.be/FzJXTdDfpuQ?si=U5HAlk4YRU45hB7f" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:clamp(13px,1.1vw,16px);text-decoration:none;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">▶ Auf YouTube ansehen</a>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn b2" onclick="goTo(8)">Weiter zu Experiment 2 →</button>
+      <button class="btn ghost" onclick="goTo(6)">Nochmal versuchen</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 4.0 – EXPERIMENT 2 AUFGABE (Intro)
+     Drehbuch: Überschrift, Text, Voiceover, ruhige Musik,
+     Instruktionsbild mit weißen Punkten, Button "Ich bin bereit"
+════════════════════════════════════════════ -->
+<div class="screen" id="s8">
+<div class="inner">
+  <div class="tag kap3">Kapitel 3 – Unaufmerksamkeitsblindheit</div>
+  <div class="card">
+    <h2>Experiment 2: <span class="hl2">Zähle genau!</span></h2>
+    <p>Gleich siehst du eine Animation. Deine Aufgabe: Zähle, wie oft die <strong style="color:var(--accent);background:rgba(45,91,227,0.08);padding:2px 8px;border-radius:6px;">weißen Punkte</strong> aufleuchten.</p>
+    <div class="vo kap3" onclick="playVO('s8')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Konzentriere dich voll auf die weißen Punkte. Zähle so genau wie möglich. Bist du bereit?</span>
+    </div>
+    <!-- Instruktionsbild -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:16px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <div style="width:20px;height:20px;border-radius:50%;background:#fff;opacity:0.9;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#fff;opacity:0.9;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#fff;opacity:0.9;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#444;opacity:0.9;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#fff;opacity:0.9;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#444;opacity:0.9;"></div>
+      </div>
+      <p class="small">Diese <span style="color:var(--accent);font-weight:800;">weißen Punkte</span> zählen – die grauen ignorieren!</p>
+    </div>
+    <button class="btn b2" onclick="goTo(9);">Ich bin bereit →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 4.1 – ANIMATION 20 SEKUNDEN
+     Drehbuch: Canvas-Animation, rotes X nach 8 Sek.,
+     Animation endet automatisch → Screen 4.2
+════════════════════════════════════════════ -->
+<div class="screen" id="s9">
+<div class="inner">
+  <div class="tag kap3">Kapitel 3 – Unaufmerksamkeitsblindheit</div>
+  <div class="card">
+    <p class="small" style="text-align:center;"><strong>Zähle die weißen Punkte</strong> – so genau wie möglich!</p>
+    <div style="background:var(--border);height:4px;border-radius:2px;">
+      <div id="exp2TimerFill" style="height:100%;background:var(--accent2);border-radius:2px;width:0%;"></div>
+    </div>
+    <canvas id="exp2Canvas" width="600" height="320"></canvas>
+    <div id="exp2AnswerSection" style="display:none;flex-direction:column;gap:12px;">
+      <p><strong>Wie viele Male haben die weißen Punkte aufgeleuchtet?</strong></p>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <input type="number" id="answerInput" placeholder="0" min="0" max="99">
+        <button class="btn b2" onclick="confirmExp2Answer()">Antwort abschicken →</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 4.2 – EINGABE (separate Seite laut Drehbuch)
+     Drehbuch: Eingabefeld, "Antwort abschicken", jede Zahl akzeptiert
+════════════════════════════════════════════ -->
+<div class="screen" id="s10">
+<div class="inner">
+  <div class="tag kap3">Kapitel 3 – Unaufmerksamkeitsblindheit</div>
+  <div class="card">
+    <h2>Hast du das <span class="hl2">graue Dreieck</span> gesehen?</h2>
+    <p>Während der Animation ist ein graues Dreieck schnell über den Bildschirm geschossen.</p>
+    <div id="yesNoSection">
+      <div class="nav-row" style="margin-top:8px;">
+        <button class="btn b2" onclick="handleYesNo(true)">Ja, habe ich gesehen ▲</button>
+        <button class="btn ghost" onclick="handleYesNo(false)">Nein, habe ich nicht gesehen</button>
+      </div>
+    </div>
+    <div id="yesNoResponse" style="display:none;flex-direction:column;gap:12px;"></div>
+    <button class="btn b2" id="yesNoContinue" style="display:none;" onclick="goTo(11)">Zur Erklärung →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 4.3 + 4.4 – ERKLÄRUNG + GORILLA
+     Drehbuch: Voiceover, Erklärungstext faded ein,
+     Infografik Gorilla-Experiment, Button "Weiter zum Wissenstest"
+════════════════════════════════════════════ -->
+<div class="screen" id="s11">
+<div class="inner">
+  <div class="tag kap3">Kapitel 3 – Unaufmerksamkeitsblindheit</div>
+  <div class="card">
+    <h2>Was ist <span class="hl2">Unaufmerksamkeitsblindheit</span>?</h2>
+    <p>Wenn wir unsere Aufmerksamkeit voll auf eine Aufgabe richten, können wir offensichtliche Dinge komplett übersehen – selbst wenn sie direkt vor uns sind.</p>
+    <div class="vo kap3" onclick="playVO('s11')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Simons und Chabris haben 1999 in einem berühmten Experiment gezeigt, dass fast die Hälfte aller Versuchspersonen einen Mann im Gorillakostüm übersah, der mitten durch eine Szene lief.</span>
+    </div>
+    <!-- Infografik Gorilla-Experiment -->
+    <div class="gorilla-info">
+      <div class="gi">🦍</div>
+      <div>
+        <h3>Gorilla-Experiment (Simons & Chabris, 1999)</h3>
+        <p class="small" style="margin-top:6px;">Versuchspersonen sollten in einem 75-Sekunden-Video die Ballwechsel des weißen Teams zählen. Nach ca. 45 Sekunden lief eine Person im Gorillakostüm durchs Bild.</p>
+        <p class="small" style="margin-top:6px;color:var(--accent2);font-weight:700;">Ergebnis: Fast 50% der Versuchspersonen sahen den Gorilla nicht.</p>
+        <p class="source" style="margin-top:6px;">Goldstein & Cacciamani, 2023, S. 160</p>
+      </div>
+    </div>
+    <div class="fact-box b2">
+      <span class="fi">💡</span>
+      <p>Bekannt durch das Gorilla-Experiment von Simons & Chabris (1999): Fast 50% der Versuchspersonen sahen den Gorilla nicht.</p>
+    </div>
+    <!-- YouTube Gorilla-Experiment -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+      <span style="font-size:28px;flex-shrink:0;">🦍</span>
+      <div>
+        <p style="font-size:clamp(14px,1.2vw,18px);color:var(--text);font-weight:700;margin-bottom:4px;">Das Original Gorilla-Experiment ansehen</p>
+        <p style="font-size:clamp(13px,1.1vw,16px);color:var(--muted);margin-bottom:10px;">Simons & Chabris (1999) – wie viele Ballwechsel des weißen Teams zählst du?</p>
+        <a href="https://youtu.be/9hV8-tEka4E?si=nGTnBjlxnq-3L3TP" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;padding:10px 22px;border-radius:8px;font-weight:700;font-size:clamp(13px,1.1vw,16px);text-decoration:none;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">▶ Auf YouTube ansehen</a>
+      </div>
+    </div>
+    <button class="btn b2" onclick="goTo(12)">Weiter zum Wissenstest →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.0 – WISSENSTEST INTRO
+     Drehbuch: Überschrift, Text, motivierende Musik,
+     Countup-Animation 3-2-1, Quiz-Icon, Button "Start"
+════════════════════════════════════════════ -->
+<div class="screen" id="s12">
+<div class="inner">
+  <div class="tag kap4">Kapitel 4 – Wissenstest</div>
+  <div class="card" style="align-items:center;text-align:center;gap:24px;">
+    <span style="font-size:48px;">❓</span>
+    <h2><span class="hl3">Wissenstest</span></h2>
+    <p>Jetzt überprüfen wir gemeinsam, was du gelernt hast. 3 Fragen warten auf dich!</p>
+    <!-- Countdown 3-2-1 -->
+    <div class="countdown-wrap" id="countdownWrap" style="display:none;">
+      <p class="small">Gleich geht's los …</p>
+      <div class="countdown-num" id="countdownNum">3</div>
+    </div>
+    <button class="btn b3 pulse" id="quizStartBtn" onclick="initQuiz();goTo(13);">Start →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.1 – FRAGE 1
+     Drehbuch: Antwortbuttons erscheinen nacheinander,
+     Fragzeichen-Icon, Richtig(B)→grünes Feedback, Falsch→rotes Feedback
+════════════════════════════════════════════ -->
+<div class="screen" id="s13">
+<div class="inner">
+  <div class="tag kap4">Kapitel 4 – Wissenstest</div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:24px;">❓</span>
+      <span class="small">Frage 1 von 3</span>
+    </div>
+    <p class="quiz-q" id="quizQ0"></p>
+    <div class="quiz-opts" id="quizOpts0"></div>
+    <div class="quiz-feedback" id="quizFb0"></div>
+    <button class="btn b3" id="quizNext0" style="display:none;" onclick="goTo(14)">Weiter zur Frage 2 →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.2 – FRAGE 2
+════════════════════════════════════════════ -->
+<div class="screen" id="s14">
+<div class="inner">
+  <div class="tag kap4">Kapitel 4 – Wissenstest</div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:24px;">❓</span>
+      <span class="small">Frage 2 von 3</span>
+    </div>
+    <p class="quiz-q" id="quizQ1"></p>
+    <div class="quiz-opts" id="quizOpts1"></div>
+    <div class="quiz-feedback" id="quizFb1"></div>
+    <button class="btn b3" id="quizNext1" style="display:none;" onclick="goTo(15)">Weiter zur Frage 3 →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.3 – FRAGE 3
+     Drehbuch: Voiceover "Denk an die Experimente",
+     Straßenverkehr-Illustration, Richtig(B)→grünes Feedback
+════════════════════════════════════════════ -->
+<div class="screen" id="s15">
+<div class="inner">
+  <div class="tag kap4">Kapitel 4 – Wissenstest</div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:24px;">🚗</span>
+      <span class="small">Frage 3 von 3</span>
+    </div>
+    <div class="vo kap4" onclick="playVO('s15')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Denk an die Experimente, die du gerade erlebt hast.</span>
+    </div>
+    <p class="quiz-q" id="quizQ2"></p>
+    <div class="quiz-opts" id="quizOpts2"></div>
+    <div class="quiz-feedback" id="quizFb2"></div>
+    <button class="btn b3" id="quizNext2" style="display:none;" onclick="goTo(16)">Weiter zur Reflexion →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.4 – REFLEXION
+     Drehbuch: Überschrift "Zum Nachdenken...", Voiceover,
+     nachdenkliche Musik, Text faded ein, Glühbirnen-Icon,
+     Button "Weiter" → Abschluss
+════════════════════════════════════════════ -->
+<div class="screen" id="s16">
+<div class="inner">
+  <div class="tag kap4">Kapitel 4 – Reflexion</div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-size:32px;">💡</span>
+      <h2>Zum Nachdenken...</h2>
+    </div>
+    <div class="vo kap4" onclick="playVO('s16')" title="Voiceover abspielen">
+      <span class="vo-icon">🔊</span>
+      <span>Nimm dir einen Moment. Denk an deinen Alltag. Wann warst du schon einmal „blind" für etwas, das direkt vor dir war?</span>
+    </div>
+    <div class="fact-box b3" style="animation:fadeUp 0.6s ease;">
+      <span class="fi">💭</span>
+      <p>In welcher Situation hast du selbst schon erlebt, dass du etwas Offensichtliches übersehen hast?</p>
+    </div>
+    <div class="fact-box b3" style="animation:fadeUp 0.8s ease;">
+      <span class="fi">🚗</span>
+      <p>Welche Konsequenzen kann Unaufmerksamkeitsblindheit im Straßenverkehr oder am Arbeitsplatz haben?</p>
+    </div>
+    <div class="fact-box b3" style="animation:fadeUp 1.0s ease;">
+      <span class="fi">📱</span>
+      <p>Wie könnte man UX-Design oder Warnsysteme verbessern, wenn man weiß, wie selektiv unsere Aufmerksamkeit ist?</p>
+    </div>
+    <p class="small" style="font-style:italic;">Kein Input nötig – diese Fragen dienen als Denkimpuls und Diskussionsgrundlage im Seminar.</p>
+    <button class="btn b3" onclick="goTo(17)">Weiter →</button>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SCREEN 5.5 – GESCHAFFT! ABSPANN
+     Drehbuch: "Geschafft!", Quellen, Konfetti-Animation,
+     Erfolgs-Icon/Pokal, Button "Nochmal spielen" → zurück zu 1.0
+     + Outro mit Autor, Semester, HFU-Logo
+════════════════════════════════════════════ -->
+<div class="screen" id="s17">
+<div class="inner">
+  <div class="tag outro">Abspann</div>
+  <div class="card" style="align-items:center;text-align:center;gap:24px;">
+    <div style="font-size:60px;">🏆</div>
+    <h2>Geschafft! 🎉</h2>
+    <p>Du hast das Lernmodul zur visuellen Aufmerksamkeit abgeschlossen.</p>
+    <!-- Zusammenfassung -->
+    <div class="outro-grid" style="width:100%;text-align:left;">
+      <div class="outro-card"><strong>Veränderungsblindheit</strong>Veränderungen werden übersehen, wenn der Blick kurz unterbrochen wird.<span class="source" style="display:block;margin-top:4px;">Rensink et al., 1997</span></div>
+      <div class="outro-card"><strong>Unaufmerksamkeitsblindheit</strong>Fokus auf eine Aufgabe lässt andere Reize unsichtbar werden.<span class="source" style="display:block;margin-top:4px;">Simons & Chabris, 1999</span></div>
+      <div class="outro-card"><strong>Offene Aufmerksamkeit</strong>Blick und Aufmerksamkeit gehen in dieselbe Richtung.<span class="source" style="display:block;margin-top:4px;">Goldstein & Cacciamani, 2023, S. 144</span></div>
+      <div class="outro-card"><strong>Verdeckte Aufmerksamkeit</strong>Aufmerksamkeit verlagert sich ohne Blickbewegung.<span class="source" style="display:block;margin-top:4px;">Goldstein & Cacciamani, 2023, S. 144</span></div>
+    </div>
+    <!-- Quellenangaben -->
+    <div style="width:100%;text-align:left;border-top:1px solid var(--border);padding-top:16px;">
+      <h3 style="margin-bottom:10px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;">Quellenangaben</h3>
+      <p class="source" style="margin-bottom:4px;">Goldstein, E. B. & Cacciamani, L. (2023). <em>Wahrnehmungspsychologie: Der Grundkurs</em>. Berlin: Springer.</p>
+      <p class="source" style="margin-bottom:4px;">Mack, A. & Rock, I. (1998). <em>Inattentional Blindness</em>. Cambridge, MA: MIT Press.</p>
+      <p class="source" style="margin-bottom:4px;">Rensink, R. A., O'Regan, J. K. & Clark, J. J. (1997). To see or not to see. <em>Psychological Science, 8</em>(5), 368–373.</p>
+      <p class="source">Simons, D. J. & Chabris, C. F. (1999). Gorillas in our midst. <em>Perception, 28</em>(9), 1059–1074.</p>
+    </div>
+    <!-- HFU Abspann -->
+    <div class="hfu-badge" style="width:100%;text-align:left;">
+      <div class="hfu-icon">🏫</div>
+      <div class="hfu-text">
+        <strong>Hochschule Furtwangen – Fakultät Business Design & Media</strong>
+        Veranstaltung: E-Learning & Online-Learning<br>
+        Autor: Jannis Gaitanidis · Semester: SoSe 2026<br>
+        Lernmodul: Visuelle Aufmerksamkeit – Bist du wirklich aufmerksam?
+      </div>
+    </div>
+    <button class="btn pulse" onclick="goTo(0)">↩ Nochmal spielen</button>
+  </div>
+</div>
+
+</div>
+<!-- SCRIPTS -->
+<script src="js/main.js"></script>
+<script src="js/experiment1.js"></script>
+<script src="js/experiment2.js"></script>
+<script src="js/quiz.js"></script>
+<script>
+// Estimate buttons - alle führen zum nächsten Screen
+function selectEst(btn){
+  playSFX('click');
+  document.querySelectorAll('.est-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  setTimeout(()=>goTo(2),400);
+}
+// Trigger staggered button appearance on s1
+document.addEventListener('DOMContentLoaded',()=>{
+  const s1obs=new MutationObserver(()=>{
+    if(document.getElementById('s1').classList.contains('active')){
+      document.querySelectorAll('.est-btn').forEach(b=>{b.style.opacity='1';b.style.transform='translateX(0)';});
+    }
+  });
+  s1obs.observe(document.getElementById('s1'),{attributes:true,attributeFilter:['class']});
+  // Init quiz text immediately
+  QUIZ.forEach((q,i)=>{
+    const el=document.getElementById('quizQ'+i);
+    if(el)el.textContent=q.q;
+  });
+});
+// Extra CSS for slide animations
+const style=document.createElement('style');
+style.textContent=`
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
